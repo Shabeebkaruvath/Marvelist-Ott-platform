@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Marvelist - Marvel studio based project website</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+</head>
+
+<body style="font-family:system-ui">
+    <!-- Search Wrapper Area Start -->
+    <div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <button type="submit"><img src="img/core-img/search.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Wrapper Area End -->
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix bg-dark">
+
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav bg-dark">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a href="#" title="Image from freepnglogos.com"><img src="https://www.freepnglogos.com/uploads/marvel-logo-png/marvel-cinematic-universe-logo-6.png" width="220" alt="marvel cinematic universe logo" /></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Header Area Start -->
+        <header class="header-area clearfix bg-dark ">
+            <!-- Close Icon -->
+            <div class="nav-close">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a href="{% url 'home' %}" title="Image from freepnglogos.com"><img src="https://www.freepnglogos.com/uploads/marvel-logo-png/marvel-cinematic-universe-logo-6.png" width="220" alt="marvel cinematic universe logo" /></a>
+            </div>
+            <!-- Amado Nav -->
+            <nav class="amado-nav text-light">
+                <ul>
+                    <li ><a href="{% url 'home' %}"style="color:#fff">Home</a></li>
+                    <li><a href="{% url 'movies' %}"style="color:#fff">Movies</a></li>
+                    <li><a href="{% url 'series' %}"style="color:#fff">TV Shows</a></li>
+                    <li><a href="{% url 'upcoming' %}"style="color:#fff">Upcoming Project</a></li>
+                    <li><a href="{% url 'feedback' %}"style="color:#fff">Feedback</a></li> 
+                    {%if user.is_authenticated%}
+                    <li><a href="{% url 'ulogout' %}"style="color:#fff">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'ulogin' %}"style="color:#fff">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            
+            <!-- Social Button -->
+            <div class="social-info d-flex justify-content-between">
+            
+                <a href="https://www.instagram.com/marvel/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/Marvel/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/Marvel?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </header>
+        <!-- Header Area End -->
+
+        <!-- Product Details Area Start -->
+        <div class="single-product-area section-padding-100 clearfix">
+            <div class="container-fluid">
+
+                
+
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="single_product_thumb">
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{data.image1}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{data.image2}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{data.image3}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url({{data.image4}});">
+                                    </li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a class="gallery_img" href="{{data.image1}}">
+                                            <img class="d-block w-100" src="{{data.image1}}" alt="First slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="{{data.image2}}">
+                                            <img class="d-block w-100" src="{{data.image2}}" alt="Second slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="{{data.image3}}">
+                                            <img class="d-block w-100" src="{{data.image3}}" alt="Third slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="{{data.image4}}">
+                                            <img class="d-block w-100" src="{{data.image4}}" alt="Fourth slide">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <div class="single_product_desc">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                
+                                <a href="#">
+                                    <h6 style="color:#fff">{{data.name}}({{data.year}})</h6>
+                                    <p><img src="https://img.icons8.com/color/30/000000/cinema---v1.png"/> {{data.genre}}</p>
+                                </a>
+                                <p class="product-price" style="color: #fff;font-size: 20px;"><img src="https://img.icons8.com/color/45/000000/imdb.png"/> {{data.rating}}/10</p> 
+                                 
+                            </div>
+                            
+                            <div class="short_overview my-5" style="text-align: justify;">
+                                <p>{{data.sdesc}}</p>
+                                
+                            </div>
+                            <ul>
+                                <li><a href="{{data.url}}"><p style="color: #fff">Watch Trailer <i class="fa fa-youtube-play" aria-hidden="true" style="font-size: x-large;"></i></p></a></li>
+                             </ul>
+                            <!-- Add to Cart Form -->
+                            <form class="cart clearfix" method="get">
+                                
+                               <a href="{{data.url}}"class="btn amado-btn" style="border-radius:40px;background-color:#fbb710"><img src="https://img.icons8.com/ios/30/000000/circled-play--v1.png"/> Watch Now</a>
+                            </form>
+                             
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="embed-responsive embed-responsive-16by9" style="margin-top:50px">
+                            <iframe width="550" height="315" src="{{data.svedio}}" title="{{data.name}}({{data.year}})" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h6 style="color:#fff;margin-top:30px;font-size:30px">{{data.name}}({{data.year}})</h6><br>
+                        <div class="short_overview my-5">
+                            <h6 style="color:#fff;font-size:20px">Directed by:</h6><p>{{data.directer}}</p>
+                            <h6 style="color:#fff;font-size:20px">Duration:</h6><p>{{data.long}}</p>
+                            <h6 style="color:#fff;font-size:20px">Genre:</h6><p>{{data.genre}}</p>
+                            <br><br>
+                            <p style="text-align: justify;">{{data.ldesc}}</p>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- Product Details Area End -->
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+    
+
+    <!-- ##### Footer Area Start ##### -->
+    <hr style="background-color:#fbb710;margin:0px;">
+    <footer class="footer_area clearfix bg-dark">
+        <div class="container bg-dark">
+            <div class="row align-items-right bg-dark">
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-4">
+                    <div class="single_widget_area">
+                        <!-- Logo -->
+                        <div class="footer-logo mr-50">
+                            <a href="#" title="Image from freepnglogos.com"><img src="https://www.freepnglogos.com/uploads/marvel-logo-png/marvel-cinematic-universe-logo-6.png" width="220" alt="marvel cinematic universe logo" /></a>
+                        </div>
+                        <!-- Copywrite Text -->
+                        <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made by <a href="http://shabeeb.rf.gd" target="_blank">shabeebkaruvath</a></a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+
+</body>
+
+</html>
